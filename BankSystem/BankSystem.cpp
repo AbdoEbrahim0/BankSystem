@@ -1,8 +1,7 @@
 //just try to check pull from visual studio 
 // after pulling
-//edit on my pull request 
-//edit on my pull request 
-//edit on my pull request 
+//edit on my pull request locally then add to repo 
+//edit from my repo then add to local machine only ttrough [fetch] 
 
 //ProgrammingAdvices.com
 //Mohmammed Abu-Hadhoud
