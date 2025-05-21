@@ -10,7 +10,9 @@ class clsTransactionScreen: protected clsScreen
 private:
 
 public:
-	
+	static void ShowTransactionMenu()
+	{
+	}
 
 
 };
