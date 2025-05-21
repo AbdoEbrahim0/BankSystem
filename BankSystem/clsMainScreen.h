@@ -8,6 +8,8 @@
 #include "clsAddNewClientScreen.h"
 #include "clsDeleteClientScreen.h"
 #include "clsUpdateClientScreen.h"
+#include "clsFindClientScreen.h"
+
 class clsMainScreen :protected clsScreen
 {
 private :
@@ -49,8 +51,9 @@ private :
     }
     static void _ShowFindClientScreen()
     {
-        clsScreen::_DrawScreenHeader("   Seacrh On Client In System");
-        cout << "\nFind Client Screen Will be here...\n";
+        
+        clsFindClientScreen::FindClientScreen();
+        //cout << "\nFind Client Screen Will be here...\n";
     }
     static void _ShowTransactionsMenue()
     {

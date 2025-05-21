@@ -6,7 +6,9 @@
 #include <string>
 #include "clsString.h"
 #include "clsDate.h"
-
+#include <algorithm>  // for std::all_of
+#include <limits>     // for std::numeric_limits
+#include <cctype>     // for std::isalpha and std::isspace
 class clsInputValidate
 {
 
@@ -118,17 +120,33 @@ public:
 	{
 		return	clsDate::IsValidDate(Date);
 	}
-	static string ReadString(string ErrorMessage = "your Inpus is not string, Enter again:\n")
+	static string ReadString(string ErrorMessage = "your Input is not string, Enter again:\n")
 	{
-		string s = "";
+		string s="";
 
+		while (true) {
+			cin >> s;
+
+			// Check if the input contains only alphabetic characters
+			bool isNumberOnly = all_of(s.begin(), s.end(), ::isdigit);
+
+			if (!isNumberOnly)
+				return s;
+
+			// Not valid, prompt again
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ErrorMessage;
+		}
+		
+		//this approach not checking if it is string or not 
 		/*while (!(cin >> s)) {
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << ErrorMessage;
 		}*/
 
-		getline(cin >> ws, s);
+		//getline(cin >> ws, s);
 		return s;
 	}
 };
