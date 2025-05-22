@@ -59,7 +59,7 @@ private:
 	void _AddDataLineToFile(string stringOfNewClient)
 	{
 		fstream myFile;
-		myFile.open("Clients.txt", ios::out | ios::app);
+		myFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt", ios::out | ios::app);
 		if (myFile.is_open())
 		{
 			
@@ -140,7 +140,7 @@ public:
 	{
 	//		vector<clsBankClientOnMyOwn> vClients;
 		fstream MyFile;
-		MyFile.open("Clients.txt", ios::in);//read mode 
+		MyFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt", ios::in);//read mode 
 		if (MyFile.is_open())
 		{
 			string Line;
@@ -161,7 +161,7 @@ public:
 	static clsBankClientOnMyOwn Find(string AccountNumber, string PinCode)
 	{
 		fstream MyFile;
-		MyFile.open("Clients.txt", ios::in);//read mode 
+		MyFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt", ios::in);//read mode 
 		if (MyFile.is_open())
 		{
 			string Line;
@@ -208,7 +208,7 @@ public:
 	{
 		fstream myFileToOverWrite;
 							  //Clients.txt
-		myFileToOverWrite.open("Clients.txt" ,ios::out);//write mode
+		myFileToOverWrite.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt" ,ios::out);//write mode
 		if (myFileToOverWrite.is_open())
 		{
 			string line;
@@ -229,7 +229,7 @@ public:
 	{
 		vector<clsBankClientOnMyOwn>vClients;
 		fstream myFile;
-		myFile.open("Clients.txt", ios::in);//readMode
+		myFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt", ios::in);//readMode
 		if (myFile.is_open())
 		{
 			string Line;
@@ -289,7 +289,7 @@ public:
 		
 		vector<clsBankClientOnMyOwn> AfterDeleteClient;
 		fstream myFile;
-		myFile.open("Clients.txt", ios::in || ios::out);
+		myFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\Clients.txt", ios::in || ios::out);
 		for (clsBankClientOnMyOwn &c : _vClients)
 		{
 			// wrong approach
