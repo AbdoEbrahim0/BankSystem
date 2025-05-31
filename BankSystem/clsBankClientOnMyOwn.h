@@ -329,6 +329,24 @@ public:
 		}
 		return sum;
 	}
+
+	void Deposit(double AmountToAdd)
+	{
+		_AccountBalance += AmountToAdd;
+		Save();
+	}
+
+	bool Withdraw(double AmountToSub)
+	{
+		if (AmountToSub > _AccountBalance)
+			return false;
+		else
+		{
+			_AccountBalance -= AmountToSub;
+			Save();
+		}
+		return true;
+	}
 	 /*void _Update2()
 	{
 		_Update();

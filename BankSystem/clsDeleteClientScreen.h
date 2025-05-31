@@ -65,7 +65,7 @@ public:
         }
         else
         {
-            cout << "clients still exist in the system\n";
+            cout << "client still exist in the system\n";
         }
     }
 

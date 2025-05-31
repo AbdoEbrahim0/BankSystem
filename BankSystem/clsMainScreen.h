@@ -10,6 +10,7 @@
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
 #include "clsTransactionScreen.h"
+
 class clsMainScreen :protected clsScreen
 {
 private :
@@ -103,14 +104,17 @@ private :
         case clsMainScreen::eShowTransactionsMenue:
             system("cls");
             _ShowTransactionsMenue();
+            _GoBackToMainMenue();
             break;
         case clsMainScreen::eManageUsers:
             system("cls");
             _ShowManageUsersMenue();
+            _GoBackToMainMenue();
             break;
         case clsMainScreen::eExit:
             system("cls");
             _ShowEndScreen();
+
             break;
         default:
             break;
