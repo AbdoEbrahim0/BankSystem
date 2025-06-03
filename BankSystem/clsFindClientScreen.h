@@ -42,7 +42,14 @@ private:
             AccNUmber = clsInputValidate::ReadString();
         }
         clsBankClientOnMyOwn ClientToShow = clsBankClientOnMyOwn::Find(AccNUmber);
-        
+        if (!ClientToShow.IsEmpty())
+        {
+            cout << "\nClient Found :-)\n";
+        }
+        else
+        {
+            cout << "\nClient Was not Found :-(\n";
+        }
         _PrintClient(ClientToShow);
             
 	}

@@ -10,6 +10,7 @@
 #include "clsUpdateClientScreen.h"
 #include "clsFindClientScreen.h"
 #include "clsTransactionScreen.h"
+#include "clsManageUsersScreen.h"
 
 class clsMainScreen :protected clsScreen
 {
@@ -65,7 +66,8 @@ private :
     static void _ShowManageUsersMenue()
     {
         clsScreen::_DrawScreenHeader("\t   Manage Useres");
-        cout << "\nUsers Menue Will be here...\n";
+        clsManageUsersScreen::ShowManageUsersMenu();
+        //cout << "\nUsers Menue Will be here...\n";
     }
     static void _ShowEndScreen()
     {

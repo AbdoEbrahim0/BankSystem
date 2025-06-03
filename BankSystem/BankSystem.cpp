@@ -12,6 +12,7 @@
 #include "clsBankClientOnMyOwn.h"
 #include "clsUtil.h"
 #include "clsMainScreen.h"
+#include "clsUser.h"
 //2nd video
 
 void ReadClientInfo(clsBankClientOnMyOwn& myclinet)
@@ -262,6 +263,12 @@ int main()
 
 //lesson 7
     clsMainScreen::ShowMainMenu();
+//
+
+    
+    
+    
+    
 system("pause>0");
     return 0;
 }
