@@ -25,6 +25,10 @@ public:
 	
     static void ShowClientsList()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pListClients))
+        {
+            return;
+        }
         clsScreen::_DrawScreenHeader("\tAll Clients in System","\tAll Informations");
         vector <clsBankClientOnMyOwn> vClients = clsBankClientOnMyOwn::GetClientsList();
 

@@ -34,6 +34,10 @@ private:
 public:
     static void DeleteClient()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pDeleteClient))
+        {
+            return;
+        }
         clsScreen::_DrawScreenHeader("\tDeleting Client From The System");
         cout << "what Client Account Number Do You want To delete ? Enter acc number\n";
         string Acc = clsInputValidate::ReadString();

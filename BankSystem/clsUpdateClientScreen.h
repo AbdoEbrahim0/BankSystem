@@ -54,6 +54,10 @@ public:
 
     static void UpdateClient()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pUpdateClients))
+        {
+            return; //will return to mai menue after showing access denied screen
+        }
         clsScreen::_DrawScreenHeader(" Update Info Of Client In The System");
         cout << "Enter Account number to update Info: ";
         string s = clsInputValidate::ReadString();

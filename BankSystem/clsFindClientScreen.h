@@ -56,6 +56,10 @@ private:
 public:
 	static void FindClientScreen()
 	{
+        if (!CheckAccessRights(clsUser::enPermissions::pFindClient))
+        {
+            return;
+        }
 		clsScreen::_DrawScreenHeader("   Seacrh On Client In System");
         _FindClient();
 	}
