@@ -56,6 +56,10 @@ private:
 public:
     static void ShowAddNewClient()
     {
+        if (!CheckAccessRights(clsUser::enPermissions::pAddNewClient))
+        {
+            return;
+        }
         _DrawScreenHeader("\tAdd New Client To System");
         cout << "Enter Acount number of a new Client you want to add to databse\n";
         string accNum = clsInputValidate::ReadString();

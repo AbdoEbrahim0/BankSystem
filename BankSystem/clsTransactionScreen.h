@@ -85,6 +85,10 @@ private:
 public:
 	static void ShowTransactionMenu()
 	{
+        if (!CheckAccessRights(clsUser::enPermissions::pTranactions))
+        {
+            return;
+        }
 		system("cls");
 		clsScreen::_DrawScreenHeader("\tTransaction Menu");
 

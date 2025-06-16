@@ -11,7 +11,8 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionScreen.h"
 #include "clsManageUsersScreen.h"
-
+#include "clsLoginScreen.h"
+#include "Global.h"
 class clsMainScreen :protected clsScreen
 {
 private :
@@ -69,10 +70,15 @@ private :
         clsManageUsersScreen::ShowManageUsersMenu();
         //cout << "\nUsers Menue Will be here...\n";
     }
-    static void _ShowEndScreen()
+            //static void _ShowEndScreen()
+            //{
+            //    clsScreen::_DrawScreenHeader("\t     Thank You!! ");
+            //    cout << "\nEnd Screen Will be here...\n";
+            //}
+
+    static void _Logout()
     {
-        clsScreen::_DrawScreenHeader("\t     Thank You!! ");
-        cout << "\nEnd Screen Will be here...\n";
+        currentUser = clsUser::Find("", "");
     }
     static void _PerformMainMenuOPtion(enMainMenueOptions enOption)
     {
@@ -115,8 +121,8 @@ private :
             break;
         case clsMainScreen::eExit:
             system("cls");
-            _ShowEndScreen();
-
+            //_ShowEndScreen();
+            _Logout();
             break;
         default:
             break;

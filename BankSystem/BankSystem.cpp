@@ -11,8 +11,10 @@
 #include <iomanip>
 #include "clsBankClientOnMyOwn.h"
 #include "clsUtil.h"
-#include "clsMainScreen.h"
+//#include "clsMainScreen.h" //hide
 #include "clsUser.h"
+#include "clsLoginScreen.h"
+#include "Global.h"
 //2nd video
 
 void ReadClientInfo(clsBankClientOnMyOwn& myclinet)
@@ -262,8 +264,14 @@ int main()
 
 
 //lesson 7
-    clsMainScreen::ShowMainMenu();
-//
+    //clsMainScreen::ShowMainMenu();
+
+//lessong 24
+    while (true)
+    {
+        clsLoginScreen::ShowLoginScreen();
+    }
+    
 
     
     
