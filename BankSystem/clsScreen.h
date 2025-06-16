@@ -14,6 +14,8 @@ protected:
             cout << "\n\t\t\t\t\t  " << SubTitle;
         }
         cout << "\n\t\t\t\t\t______________________________________\n\n";
+        cout << "\t\t\t\t\t\tCurrent User: " << currentUser.GetUserName();
+        cout << "\n\t\t\t\t\t\tToday's Date: " << clsDate::DateToString(clsDate()) << "\n";
     }
         
     static bool CheckAccessRights(clsUser::enPermissions Permission)
@@ -24,6 +26,7 @@ protected:
             cout << "\t\t\t\t\t______________________________________";
             cout << "\n\n\t\t\t\t\t  Access Denied! Contact your Admin.";
             cout << "\n\t\t\t\t\t______________________________________\n\n";
+
             return false;
         }
         else
@@ -32,4 +35,5 @@ protected:
         }
 
     }
+
 };

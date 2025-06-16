@@ -133,7 +133,6 @@ public:
 	{
 		system("cls");
 		clsScreen::_DrawScreenHeader("\t\tMain Menu");
-
         cout << setw(37) << left << "" << "===========================================\n";
         cout << setw(37) << left << "" << "\t\t\tMain Menue\n";
         cout << setw(37) << left << "" << "===========================================\n";
