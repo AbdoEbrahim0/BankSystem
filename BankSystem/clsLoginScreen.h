@@ -8,19 +8,26 @@
 	  
 class clsLoginScreen: protected clsScreen
 {
-
+	 
 private:
-	static void _Login()
+	
+	static bool _Login()
 	{
 		string UserName ,passWord ;
-		
+		static short NumberOfFailedloggingIn=0;
 		bool LoginFailed = false;
-		do {
-		
+		do {	
 			
 			if (LoginFailed)
 			{
 				cout << "\n Invalid userName/PassWord\n";
+				NumberOfFailedloggingIn++;
+				cout << "you have " << (3 - NumberOfFailedloggingIn) << " Atempts or system will be Locked Down\n";
+				if (NumberOfFailedloggingIn == 3)
+				{
+					cout << "\nYou reached maximum Number Of Attemps system will be locked Due to Security\n";
+					return false;
+				}
 			}
 			cout << "Enter User Name : \n";
 			cin >> UserName;
@@ -28,17 +35,22 @@ private:
 			cin >> passWord;
 			currentUser = clsUser::Find(UserName, passWord);
 			LoginFailed = currentUser.IsEmpty();
-		} while (LoginFailed);
+			
+		} while (LoginFailed );
+		
+		NumberOfFailedloggingIn = 0; // to reset number of failure when any user logged in successfully
 		clsMainScreen::ShowMainMenu();
+		return true;
 	}
 
 public:
-	static void ShowLoginScreen()
+	static bool ShowLoginScreen()
 	{
 		system("cls");
 		_DrawScreenHeader("\t   Login Screen");
-		_Login();
+		return _Login();
 		
 	}
 
 };
+

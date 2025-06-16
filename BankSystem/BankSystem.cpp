@@ -269,7 +269,8 @@ int main()
 //lessong 24
     while (true)
     {
-        clsLoginScreen::ShowLoginScreen();
+        if (!clsLoginScreen::ShowLoginScreen())
+            return 0;
     }
     
 
