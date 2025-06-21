@@ -351,5 +351,16 @@ public:
 	{
 		_Update();
 	}*/
+	bool Transfer(float Amount, clsBankClientOnMyOwn& DestinationClient)
+	{
+		if (Amount > AccountBalance)
+		{
+			return false;
+		}
+
+		Withdraw(Amount);
+		DestinationClient.Deposit(Amount);
+		return true;
+	}
 };
 

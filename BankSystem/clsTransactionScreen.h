@@ -8,16 +8,16 @@
 #include "clsDepositScreen.h"
 #include "clsWithdrawScreen.h"
 #include "clsTotalBalancesScreen.h"
-
+#include "clsTransferScreen.h"
 class clsTransactionScreen: protected clsScreen
 {
 private:
-    enum enTransactionMenueOptions {eDeposit=1 ,eWithdraw=2,eTotalBalances=3,eMainMenue=4};
+    enum enTransactionMenueOptions {eDeposit=1 ,eWithdraw=2,eTotalBalances=3, eTransfer = 4,eMainMenue=5};
 
 
     static short _ReadTransactionMenueOption()
     {
-        short From = 1, To = 4;
+        short From = 1, To = 5;
         cout << "\nEnter what Choice You Want to do ? From " << From << " To " << To << "\n";
         short choice = (short)clsInputValidate::ReadIntNumberBetween(From, To, "Invalid Number, Enter number between 1 : 4\n");
         return choice;
@@ -45,6 +45,10 @@ private:
         //cout << "Total balancesscreen will be here\n";
     }
     
+    static void _ShowTransferScreen()
+    {
+        clsTransferScreen::ShowTransferScreen();
+    }
     static void _PerformTransactionMenuOPtion(enTransactionMenueOptions Choice)
     {
         switch (Choice)
@@ -70,6 +74,15 @@ private:
             _GoBackToTansactionMenue();
             break;
         }
+        case clsTransactionScreen::eTransfer:
+        {
+            system("cls");
+            //_ShowTotalBalancesScreen();
+            _ShowTransferScreen();
+            _GoBackToTansactionMenue();
+            break;
+        }
+        
         case clsTransactionScreen::eMainMenue:
         {
             system("cls");
@@ -98,7 +111,8 @@ public:
         cout << setw(37) << left << "" << "\t[1] Deposite.\n";
         cout << setw(37) << left << "" << "\t[2] WithDraw.\n";
         cout << setw(37) << left << "" << "\t[3] Total Balances.\n";
-        cout << setw(37) << left << "" << "\t[4] return back To Main Menue.\n";
+        cout << setw(37) << left << "" << "\t[4] Transfer.\n";
+        cout << setw(37) << left << "" << "\t[5] return back To Main Menue.\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
         _PerformTransactionMenuOPtion((enTransactionMenueOptions)_ReadTransactionMenueOption());
