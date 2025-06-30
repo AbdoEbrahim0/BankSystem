@@ -46,6 +46,8 @@ private:
         }
         return Amount;
     }
+
+    
 public:
 	static void ShowTransferScreen()
 	{
@@ -79,6 +81,6 @@ public:
         _PrintClient(DestinationClient);
 	}
 
-
+    
 
 };
