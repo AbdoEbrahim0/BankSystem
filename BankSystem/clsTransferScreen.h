@@ -60,14 +60,12 @@ public:
         _PrintClient(DestinationClient);
 
         float Amount = ReadAmount(SourceClient);
-
-
         cout << "\nAre you sure you want to perform this operation? y/n? ";
         char Answer = 'n';
         cin >> Answer;
         if (Answer == 'Y' || Answer == 'y')
         {
-            if (SourceClient.Transfer(Amount, DestinationClient))
+            if (SourceClient.Transfer(Amount, DestinationClient,currentUser.UserName))
             {
                 cout << "\nTransfer done successfully\n";
             }

@@ -179,6 +179,9 @@
     <Text Include="LoginRegister.txt">
       <DeploymentContent>true</DeploymentContent>
     </Text>
+    <Text Include="TransferLog.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
     <Text Include="Users.txt">
       <DeploymentContent>true</DeploymentContent>
     </Text>

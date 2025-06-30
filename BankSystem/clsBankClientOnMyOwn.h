@@ -7,6 +7,7 @@
 #include <vector>
 #include <fstream>
 #include "clsInputValidate.h"
+//#include "Global.h"
 using namespace std;
 class clsBankClientOnMyOwn : public clsPerson
 {
@@ -64,6 +65,32 @@ private:
 		{
 			
 			myFile << stringOfNewClient << endl;
+			myFile.close();
+		}
+	}
+	
+	string  _PrepareTransferLogRecord(double argAmount, clsBankClientOnMyOwn argDestinationClient, string argUserName, string argSeprator="#//#") {
+		string stringOfNewTransfer ="";
+		stringOfNewTransfer += clsDate::GetSystemDateTimeString() + argSeprator;
+		stringOfNewTransfer += _AccountNumber + argSeprator;
+		stringOfNewTransfer += argDestinationClient.AccountNumber() + argSeprator;
+		stringOfNewTransfer += to_string(argAmount) + argSeprator;
+		stringOfNewTransfer += to_string(AccountBalance) + argSeprator;
+		//stringOfNewTransfer += to_string(AccountBalance - argAmount) + argSeprator;
+		stringOfNewTransfer += to_string(argDestinationClient.AccountBalance) + argSeprator;
+		//stringOfNewTransfer += to_string(argDestinationClient.AccountBalance + argAmount) + argSeprator;
+		stringOfNewTransfer += argUserName;
+		return stringOfNewTransfer;
+	}
+	void _RegisterTransferLog(double argAmount,clsBankClientOnMyOwn argDestinationClient,string argUserName)
+	{
+		fstream myFile;
+		string stringOfNewTransfer = _PrepareTransferLogRecord(argAmount, argDestinationClient, argUserName);
+		myFile.open("C:\\Users\\Mr_Abdo\\source\\repos\\BankSystem\\BankSystem\\TransferLog.txt", ios::out | ios::app);
+		if (myFile.is_open())
+		{
+
+			myFile << stringOfNewTransfer << endl;
 			myFile.close();
 		}
 	}
@@ -351,15 +378,15 @@ public:
 	{
 		_Update();
 	}*/
-	bool Transfer(float Amount, clsBankClientOnMyOwn& DestinationClient)
+	bool Transfer(float Amount, clsBankClientOnMyOwn& DestinationClient,string UserName)
 	{
 		if (Amount > AccountBalance)
 		{
 			return false;
 		}
-
 		Withdraw(Amount);
 		DestinationClient.Deposit(Amount);
+		_RegisterTransferLog(Amount,DestinationClient, UserName);
 		return true;
 	}
 };
